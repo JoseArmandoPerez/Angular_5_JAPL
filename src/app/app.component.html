@@ -1,27 +1,46 @@
-<div class="container m-3">
-  <h1>Jose Armando Perez Lugo</h1>
-  <div *ngIf="datos.length > 0; else nopersonas">
-    <table class="table table-hover table-striped">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Sexo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let persona of datos">
-          <td>{{ persona.id }}</td>
-          <td>{{ persona.nombre }}</td>
-          <td>{{ persona.apellido }}</td>
-          <td>{{ persona.sexo }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <ng-template #nopersonas>
-    <p>No hay personas</p>
-  </ng-template>
+<h2>Jose Armando Perez Lugo</h2>
+<div *ngIf="variable" style="background-color: cyan">
+  <p>Si la variable equivale a true, entonces el parrafo es visible.</p>
+  <p>Si la variable equivale a true, entonces el parrafo es visible.</p>
+  <p>Si la variable equivale a true, entonces el parrafo es visible.</p>
 </div>
+
+<button (click)="variable = !variable">Cambiar Primer Texto</button>
+
+<div style="background-color: blue" *ngIf="mayorEdad(); else parteFalsa">
+  <p>Si la edad es igual o mayor a 18, entonces este parrafo es visible,</p>
+  <p>Si la edad es igual o mayor a 18, entonces este parrafo es visible,</p>
+  <p>Si la edad es igual o mayor a 18, entonces este parrafo es visible,</p>
+</div>
+
+<button (click)="intercambiarEdad()">Cambiar el segundo texto</button>
+
+<ng-template #parteFalsa>
+  <div style="background-color: green">
+    <p>Si la edad es menor a 18, entonces este parrafo es visible,</p>
+    <p>Si la edad es menor a 18, entonces este parrafo es visible,</p>
+    <p>Si la edad es menor a 18, entonces este parrafo es visible,</p>
+  </div>
+</ng-template>
+
+<h3>Frutas en el canasto</h3>
+<div *ngFor="let i of canasto">
+  <ul>
+    <li>El canasto contiene {{ i }}</li>
+  </ul>
+</div>
+
+<div [ngSwitch]="estado" style="background-color: green">
+  <p *ngSwitchCase="1">El estado de Aguascalientes</p>
+  <p *ngSwitchCase="2">El estado de Coahuila</p>
+  <p *ngSwitchCase="3">El estado de Jalisco</p>
+  <p *ngSwitchCase="4">El estado de Veracruz</p>
+  <p *ngSwitchCase="5">El estado de Durango</p>
+  <p *ngSwitchDefault>No es ningun estado conocido</p>
+</div>
+
+<button (click)="incrementarEstado()">Incrementar estados</button>
+
+<button (click)="decrementarEstado()" style="margin-left: 10px;">
+  Decrementar estado
+</button>

@@ -3,41 +3,39 @@ import { Component, VERSION } from '@angular/core';
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: [ './app.component.css' ]
 })
-export class AppComponent {
-  datos: personas[] = [
-    {
-      id: 1,
-      nombre: 'Ochako',
-      apellido: 'Uraraka',
-      sexo: 'F',
-    },
-    { id: 2, nombre: 'Izuku', apellido: 'Midoriya', sexo: 'M' },
-    {
-      id: 3,
-      nombre: 'Bakugo',
-      apellido: 'Katsuki',
-      sexo: 'M',
-    },
-    {
-      id: 4,
-      nombre: 'Yagi',
-      apellido: 'Toshinori',
-      sexo: 'M',
-    },
-    {
-      id: 5,
-      nombre: 'Jiro',
-      apellido: 'Kyoka ',
-      sexo: 'F',
-    },
-  ];
-}
+export class AppComponent  {
+  variable: boolean = false;
+  edad:number = 18;
+  canasto: string[] = ["Manzana","Peras", "Platanos", "Frytillas", "Kiwis", "Fresas", "Melones"]
+  estado: number = 1;
 
-interface personas {
-  id: number;
-  nombre: string;
-  apellido: string;
-  sexo: string;
+  mayorEdad():boolean {
+    if(this.edad >= 18){
+      return true;
+    }
+    return false;
+  }
+
+  intercambiarEdad():void{
+    if(this.edad == 18){
+      this.edad = 12;
+    }
+    else {
+      this.edad = 18;
+    }
+  }
+
+  incrementarEstado():void{
+    if(++this.estado >= 6){
+      this.estado = 1;
+    }
+  }
+
+  decrementarEstado():void {
+    if(--this.estado <= 0){
+      this.estado = 5;
+    }
+  }
 }
