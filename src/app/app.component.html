@@ -1,0 +1,27 @@
+<div class="container m-3">
+  <h1>Jose Armando Perez Lugo</h1>
+  <div *ngIf="datos.length > 0; else nopersonas">
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Sexo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let persona of datos">
+          <td>{{ persona.id }}</td>
+          <td>{{ persona.nombre }}</td>
+          <td>{{ persona.apellido }}</td>
+          <td>{{ persona.sexo }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #nopersonas>
+    <p>No hay personas</p>
+  </ng-template>
+</div>
